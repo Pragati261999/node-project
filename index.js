@@ -5,7 +5,6 @@ const compression = require("compression");
 
 const db = require('../node-start/app.js');
 
-
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -14,7 +13,7 @@ app.use(compression());
 
 
 app.get('/', (req, res) => {
-    res.send('App is working fine!!')
-})
+    res.send('App is working fine!!');
+});
 
 app.listen(port,()=>console.log(`listening on port ${port}`));
