@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const compression = require("compression");
 
+const db = require('../node-start/app.js');
+
 
 const app = express();
 const port = process.env.PORT || 5000;
