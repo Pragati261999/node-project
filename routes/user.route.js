@@ -5,7 +5,7 @@ const userController = require("../controller/controller.js");
 
 router.post("/adduser", userController.createUser);
 
-router.get("/sdjdk", userController.getAllUsers); // New route for fetching all users
+router.get("/getusers", userController.getAllUsers); // New route for fetching all users
 
 
 module.exports = router;
