@@ -61,5 +61,73 @@ const editUser = async (req, res) => {
   }
 };
 
+const signup = async (req, res) => {
+  try {
+    const { username, email, password, role } = req.body;
+
+    // Check if the email is already registered
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ error: "Email is already registered" });
+    }
+
+    // Hash the password before storing it
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await User.create({
+      username,
+      email,
+      password: hashedPassword,
+      role,
+    });
+
+    const token = jwt.sign({ userId: newUser.id }, process.env.APP_KEY);
+
+    res.status(201).json({ token });
+  } catch (error) {
+    console.error("Error creating user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    payload = {};
+
+    payload.user = await User.findOne({ where: { email } });
+
+    if (!payload.user) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, payload.user.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    if (payload.user.role === "user") {
+      payload.token = jwt.sign(
+        { userId: payload.user.id },
+        process.env.APP_KEY
+      );
+      res.status(200).json({ payload });
+    }
+
+    if (payload.user.role === "teacher") {
+      payload.token = jwt.sign(
+        { userId: payload.user.id },
+        process.env.APP_KEY
+      );
+      res.status(200).json({ payload });
+    }
+
+    res.status(200).json({ payload });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
 
 module.exports = { createUser, getAllUsers, editUser, signup, login };
