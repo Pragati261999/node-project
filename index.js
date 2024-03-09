@@ -6,8 +6,13 @@ const compression = require("compression");
 const db = require("../node-start/app"); // Correct path to your Sequelize instance
 const userRoutes = require("../node-start/routes/user.route");
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpecs = require("./config/swagger");
+
 const app = express();
 const port = process.env.PORT || 5000;
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
 // Add sequelize.authenticate() to ensure the database connection is established
 db.authenticate()
