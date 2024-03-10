@@ -15,7 +15,6 @@ const addsubject = async (req, res, next) => {
   res.status(200).json(addsubject);
 };
 
-
 module.exports = {
   addsubject,
 };
