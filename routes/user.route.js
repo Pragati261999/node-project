@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const userController = require("../controller/controller.js");
+const subjectController = require("../controller/subject.js");
 const Schema = require("./schema.js");
 
 
@@ -14,5 +15,10 @@ router.put("update/:userId", userController.editUser);
 
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
+
+router.post("/addsubject/:teacher_id", subjectController.addsubject);
+
+
+
 
 module.exports = router;
