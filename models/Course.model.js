@@ -2,18 +2,18 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../app");
 
-const Subject = sequelize.define("Subject", {
-  subject_id: {
+const Course = sequelize.define("Course", {
+  course_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  subject_id: {
-    type: DataTypes.INTEGER,
+  course_name: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  course_id: {
-    type: DataTypes.INTEGER,
+  course_type: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });
@@ -22,10 +22,10 @@ const Subject = sequelize.define("Subject", {
 (async () => {
   try {
     await sequelize.sync();
-    console.log("Subject table created or already exists");
+    console.log("Course table created or already exists");
   } catch (error) {
-    console.error("Error creating Subject table:", error);
+    console.error("Error creating Course table:", error);
   }
 })();
 
-module.exports = Subject;
+module.exports = User;

@@ -3,30 +3,37 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../app");
 
 const Questions = sequelize.define("Questions", {
-  id: {
+  question_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  teacher_id: {
-    type: DataTypes.STRING,
+  course_id: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  question_type: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  question: {
+  subject_id: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   // Add more columns here
-  options: {
+  question_type: {
     type: DataTypes.STRING,
     allowNull: true,
   },
-
-  entry_type: {
+  question: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  faculty_id: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  question_level: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  marks: {
     type: DataTypes.STRING,
     allowNull: true,
   },
@@ -37,9 +44,9 @@ const Questions = sequelize.define("Questions", {
 (async () => {
   try {
     await sequelize.sync();
-    console.log("Questions table created or already exists");
+    console.log("Question table created or already exists");
   } catch (error) {
-    console.error("Error creating users table:", error);
+    console.error("Error creating Question table:", error);
   }
 })();
 
