@@ -17,8 +17,8 @@ router.put("update/:userId", userController.editUser);
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 
-router.post("/addsubject/:teacher_id", subjectController.addsubject);
-router.post("/addquestions/:teacher_id", questionController.addquestions);
+router.post("/addsubject", subjectController.addsubject);
+router.post("/addquestions", questionController.addquestions);
 
 
 

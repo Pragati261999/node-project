@@ -9,13 +9,24 @@ const addquestions = async (req, res, next) => {
 
   console.log(teacher_id);
 
-  const { question_type, question, options, entry_type } = req.body;
-
-  const addquestions = await Questions.create({
+  const {
+    course_id,
+    subject_id,
     question_type,
     question,
-    options,
-    entry_type,
+    faculty_id,
+    question_level,
+    marks
+  } = req.body;
+
+  const addquestions = await Questions.create({
+    course_id,
+    subject_id,
+    question_type,
+    question,
+    faculty_id,
+    question_level,
+    marks,
   });
   res.status(200).json(addquestions);
 };

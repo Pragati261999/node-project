@@ -8,12 +8,12 @@ const Subject = sequelize.define("Subject", {
     primaryKey: true,
     autoIncrement: true,
   },
-  subject_id: {
+  course_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  course_id: {
-    type: DataTypes.INTEGER,
+  subject_name: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
 });
