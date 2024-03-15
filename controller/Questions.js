@@ -31,6 +31,13 @@ const addquestions = async (req, res, next) => {
   res.status(200).json(addquestions);
 };
 
+
+const getquestions = async (req, res, next) => { 
+  const addquestions = await Questions.findAll();
+  res.status(200).json(addquestions);
+}
+
 module.exports = {
   addquestions,
+  getquestions,
 };
