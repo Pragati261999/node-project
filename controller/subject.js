@@ -9,6 +9,14 @@ const addsubject = async (req, res, next) => {
   res.status(200).json(addsubject);
 };
 
+
+
+const getsubject = async (req, res, next) => { 
+  const getsubject = await Subject.findAll();
+  res.status(200).json(getsubject);
+}
+
 module.exports = {
   addsubject,
+  getsubject,
 };
