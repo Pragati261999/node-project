@@ -28,4 +28,4 @@ const Course = sequelize.define("Course", {
   }
 })();
 
-module.exports = User;
+module.exports = Course;
