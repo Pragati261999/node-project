@@ -18,5 +18,5 @@ const getsubject = async (req, res, next) => {
 
 module.exports = {
   addsubject,
-  getsubject,
+  getsubject
 };
