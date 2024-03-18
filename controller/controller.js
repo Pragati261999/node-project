@@ -46,7 +46,6 @@ const editUser = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-
     // Update user data
     user.username = username;
     user.email = email;

@@ -20,6 +20,9 @@ router.put("update/:userId", userController.editUser);
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 
+
+
+
 // Subjects routes
 
 router.post("/addsubject", subjectController.addsubject);
