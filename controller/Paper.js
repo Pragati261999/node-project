@@ -16,10 +16,7 @@ const addpaper = async (req, res, next) => {
   res.status(200).json(paper);
 };
 
-const getpaper = async (req, res, next) => {
-  const paper = await Paper.findAll();
-  res.status(200).json(paper);
-};
+
 
 
 module.exports = {
