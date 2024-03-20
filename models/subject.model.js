@@ -16,6 +16,10 @@ const Subject = sequelize.define("Subject", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  subject_code: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
 // Sync the model with the database to create the table

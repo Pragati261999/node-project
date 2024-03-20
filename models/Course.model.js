@@ -16,6 +16,10 @@ const Course = sequelize.define("Course", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  course_code: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
 // Sync the model with the database to create the table

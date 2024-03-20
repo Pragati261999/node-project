@@ -5,11 +5,12 @@ const jwt = require("jsonwebtoken");
 const Course = require("../models/Course.model");
 
 const addcourse = async (req, res, next) => {
-  const { course_name, course_type } = req.body;
+  const { course_name, course_type, course_code } = req.body;
 
   const course = await Course.create({
     course_name,
     course_type,
+    course_code,
   });
   res.status(200).json(course);
 };
