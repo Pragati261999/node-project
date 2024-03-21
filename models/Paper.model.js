@@ -33,7 +33,7 @@ const Paper = sequelize.define("Paper", {
     type: DataTypes.STRING,
     allowNull: true,
   },
- 
+
   // Add more columns as needed
 });
 
