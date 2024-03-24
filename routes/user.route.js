@@ -38,6 +38,7 @@ router.get("/getquestions", questionController.getquestions);
 // course route
 router.post("/addcourse", courseController.addcourse);
 router.get("/getcourse", courseController.getcourse);
+router.get("/editcourse/:userId", courseController.editCourse);
 
 
 
@@ -45,6 +46,6 @@ router.get("/getcourse", courseController.getcourse);
 
 router.post("/addpaper", paperController.addpaper);
 router.get("/getpaper", paperController.getpaper);
-router.get("/editpaper", paperController.editPaper);
+router.get("/editpaper/:questionId", paperController.editPaper);
 
 module.exports = router;
