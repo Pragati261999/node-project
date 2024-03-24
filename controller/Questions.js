@@ -81,7 +81,6 @@ const editQuestion = async (req, res, next) => {
   }
 };
 
-module.exports = { editQuestion };
 
 
 module.exports = {

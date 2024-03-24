@@ -64,4 +64,5 @@ const editPaper = async (req, res, next) => {
 module.exports = {
   addpaper,
   getpaper,
+  editPaper,
 };

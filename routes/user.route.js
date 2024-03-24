@@ -44,6 +44,7 @@ router.get("/getcourse", courseController.getcourse);
 // paper routes
 
 router.post("/addpaper", paperController.addpaper);
-router.get("/getcourse", paperController.getpaper);
+router.get("/getpaper", paperController.getpaper);
+router.get("/editpaper", paperController.editPaper);
 
 module.exports = router;
