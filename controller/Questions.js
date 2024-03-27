@@ -3,6 +3,7 @@ const Subject = require("../models/Questions.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Questions = require("../models/Questions.model");
+const Course = require("../models/Course.model");
 
 const addquestions = async (req, res, next) => {
   const teacher_id = req.params.teacher_id;
@@ -36,12 +37,12 @@ const getquestions = async (req, res, next) => {
 
   const questionwithsubjects = await Promise.all(
     addquestions.map(async (quest) => {
-      const subjectId = addquestions.subject_id;
-      const courseId = addquestions.course_id;
+      const subjectId = quest.subject_id;
+      const courseId = quest.course_id;
       const subject = await Subject.findOne({
         where: { subject_id: subjectId },
       });
-      const course = await Subject.findOne({
+      const course = await Course.findOne({
         where: { course_id: courseId },
       });
       return {
