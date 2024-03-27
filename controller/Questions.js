@@ -16,7 +16,7 @@ const addquestions = async (req, res, next) => {
     question,
     faculty_id,
     question_level,
-    marks
+    marks,
   } = req.body;
 
   const addquestions = await Questions.create({
@@ -31,11 +31,28 @@ const addquestions = async (req, res, next) => {
   res.status(200).json(addquestions);
 };
 
-
-const getquestions = async (req, res, next) => { 
+const getquestions = async (req, res, next) => {
   const addquestions = await Questions.findAll();
-  res.status(200).json(addquestions);
-}
+
+  const questionwithsubjects = await Promise.all(
+    addquestions.map(async (quest) => {
+      const subjectId = addquestions.subject_id;
+      const courseId = addquestions.course_id;
+      const subject = await Subject.findOne({
+        where: { subject_id: subjectId },
+      });
+      const course = await Subject.findOne({
+        where: { course_id: courseId },
+      });
+      return {
+        ...addquestions.toJSON(),
+        subject: subject ? subject.toJSON() : null,
+        course: course ? course.toJSON() : null,
+      };
+    })
+  );
+  res.status(200).json(questionwithsubjects);
+};
 
 const editQuestion = async (req, res, next) => {
   try {
@@ -80,8 +97,6 @@ const editQuestion = async (req, res, next) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
-
 
 module.exports = {
   addquestions,
