@@ -46,7 +46,7 @@ const getquestions = async (req, res, next) => {
         where: { course_id: courseId },
       });
       return {
-        ...addquestions.toJSON(),
+        ...quest.toJSON(),
         subject: subject ? subject.toJSON() : null,
         course: course ? course.toJSON() : null,
       };
