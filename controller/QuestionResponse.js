@@ -2,7 +2,7 @@ const Subject = require("../models/Questions.model");
 
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const Questions = require("../models/QuestionResponses.model");
+const QuestionResponse = require("../models/QuestionResponses.model");
 
 const addquestionsresponses = async (req, res) => {
   try {
