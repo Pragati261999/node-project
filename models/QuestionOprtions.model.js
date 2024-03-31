@@ -2,7 +2,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../app");
 
-const QuestionOption = sequelize.define("QuestionResponse", {
+const QuestionOptions = sequelize.define("QuestionOptions", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -12,16 +12,12 @@ const QuestionOption = sequelize.define("QuestionResponse", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  seleted_option: {
+  options: {
     type: DataTypes.STRING,
     allowNull: false,
   },
   // Add more columns here
-  user_id: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  marks: {
+  answer: {
     type: DataTypes.STRING,
     allowNull: true,
   },
@@ -32,10 +28,10 @@ const QuestionOption = sequelize.define("QuestionResponse", {
 (async () => {
   try {
     await sequelize.sync();
-    console.log("QuestionResponse table created or already exists");
+    console.log("QuestionOptions table created or already exists");
   } catch (error) {
-    console.error("Error creating QuestionResponse table:", error);
+    console.error("Error creating QuestionOptions table:", error);
   }
 })();
 
-module.exports = QuestionResponse;
+module.exports = QuestionOptions;
