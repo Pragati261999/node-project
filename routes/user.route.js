@@ -5,6 +5,7 @@ const userController = require("../controller/controller.js");
 const subjectController = require("../controller/subject.js");
 const questionController = require("../controller/Questions.js");
 const courseController = require("../controller/Course.controller.js");
+const questionsController = require("../controller/QuestionResponse.js");
 const paperController = require("../controller/Paper.js");
 const Schema = require("./schema.js");
 
@@ -47,5 +48,9 @@ router.get("/editcourse/:userId", courseController.editCourse);
 router.post("/addpaper", paperController.addpaper);
 router.get("/getpaper", paperController.getpaper);
 router.get("/editpaper/:questionId", paperController.editPaper);
+
+
+
+router.post("/addquestionsresponses", questionsController.addquestionsresponses);
 
 module.exports = router;
