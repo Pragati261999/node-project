@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Questions = require("../models/Questions.model");
 const Course = require("../models/Course.model");
+const QuestionOptions = require("../models/QuestionOprtions.model");
 
 const addquestions = async (req, res, next) => {
   const teacher_id = req.params.teacher_id;
