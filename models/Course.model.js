@@ -8,6 +8,7 @@ const Course = sequelize.define("Course", {
     primaryKey: true,
     autoIncrement: true,
   },
+
   course_name: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -20,6 +21,7 @@ const Course = sequelize.define("Course", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  user_id: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 // Sync the model with the database to create the table

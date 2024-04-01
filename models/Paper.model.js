@@ -33,6 +33,7 @@ const Paper = sequelize.define("Paper", {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  user_id: { type: DataTypes.INTEGER, allowNull: false },
 
   // Add more columns as needed
 });

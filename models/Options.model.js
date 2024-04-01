@@ -16,6 +16,7 @@ const Option = sequelize.define("Option", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  user_id: { type: DataTypes.INTEGER, allowNull: false },
 });
 
 // Sync the model with the database to create the table
