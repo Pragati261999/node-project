@@ -47,6 +47,31 @@ const editCourse = async (req, res) => {
   }
 };
 
+
+
+const deletecourse = async (req, res, next) => {
+  try {
+    const courseId = req.params.courseId; // Extract courseId from request parameters
+
+    // Find the course by ID
+    const course = await Course.findByPk(courseId);
+
+    // Check if the course exists
+    if (!course) {
+      return res.status(404).json({ error: "Course not found" });
+    }
+
+    // Delete the course
+    await course.destroy();
+
+    res.status(200).json({ message: "Course deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting course:", error);
+    res.status(500).send("Internal Server Error");
+  }
+};
+
+
 module.exports = {
   addcourse,
   getcourse,
