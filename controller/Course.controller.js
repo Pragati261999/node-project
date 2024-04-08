@@ -76,4 +76,5 @@ module.exports = {
   addcourse,
   getcourse,
   editCourse,
+  deletecourse,
 };
