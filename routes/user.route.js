@@ -40,6 +40,7 @@ router.get("/getquestions", questionController.getquestions);
 router.post("/addcourse", courseController.addcourse);
 router.get("/getcourse", courseController.getcourse);
 router.get("/editcourse/:userId", courseController.editCourse);
+router.delete("/courses/:courseId", courseController.deletecourse);
 
 
 
